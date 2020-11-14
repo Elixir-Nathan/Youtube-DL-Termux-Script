@@ -22,9 +22,15 @@ clear
 
 echo "Installation de Youtube-DL"
 pip install youtube-dl
+clear
 
-# echo "Création de fichier partager entre Termux et le téléphone"
-# mkdir /data/data/com.termux/files/home/storage/shared/Youtube
+echo "Création de fichier partager entre Termux et le téléphone"
+mkdir /data/data/com.termux/files/home/storage/shared/Youtube
+sleep 3
 
-# mkdir bin
-# youtube-dl $1 > bin/termux-url-opener
+echo "Ajout de la configuration de Youtube-DL"
+mkdir -p ~/.config/youtube-dl
+curl https://raw.githubusercontent.com/Elixir-Nathan/Youtube-DL-Termux-Script/main/config -o ~/.config/youtube-dl/config
+
+echo "Ajout de la fonction de téléchargement"
+mkdir ~/bin
