@@ -1,36 +1,45 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-echo "Installation d'APT"
-pkg install apt # Installation d'APT
+echo -e "\e[102mInstallation d'APT"
+echo -e "\e[49m "
+pkg install -y apt # Installation d'APT
 sleep 3
 clear
 
-echo "Mise a niveau des paquet basique"
+echo -e "\e[102mMise a niveau des paquet basique"
+echo -e "\e[49m "
 apt update && apt -y upgrade # Mise a jours des paquet
 sleep 3
 clear
 
-echo "Installation des paquet de dépendance a YouTube-DL"
+echo -e "\e[102mInstallation des paquet de dépendance a YouTube-DL"
+echo -e "\e[49m "
 apt -y install python nano curl bash ffmpeg  # Installation des choses requise pour YouTube-DL
 sleep 3
 clear
 
-echo "Demande d'accèes au stockage"
+echo -e "\e[102mDemande d'accèes au stockage"
+echo -e "\e[49m "
 termux-setup-storage
 sleep 3
 clear
 
-echo "Installation de Youtube-DL"
+echo -e "\e[102mInstallation de Youtube-DL"
+echo -e "\e[49m "
 pip install youtube-dl
 clear
 
-echo "Création de fichier partager entre Termux et le téléphone"
+echo -e "\e[102mCréation de fichier partager entre Termux et le téléphone"
+echo -e "\e[49m "
 mkdir /data/data/com.termux/files/home/storage/shared/Youtube
 sleep 3
 
-echo "Ajout de la configuration de Youtube-DL"
+echo -e "\e[102mAjout de la configuration de Youtube-DL"
+echo -e "\e[49m "
 mkdir -p ~/.config/youtube-dl
 curl https://raw.githubusercontent.com/Elixir-Nathan/Youtube-DL-Termux-Script/main/config -o ~/.config/youtube-dl/config
 
-echo "Ajout de la fonction de téléchargement"
+echo -e "\e[102mAjout de la fonction de téléchargement"
+echo -e "\e[49m "
 mkdir ~/bin
+curl https://raw.githubusercontent.com/Elixir-Nathan/Youtube-DL-Termux-Script/main/termux-url-opener -o ~/bin/termux-url-opener
